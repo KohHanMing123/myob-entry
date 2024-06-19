@@ -44,7 +44,8 @@ providers = ['Friends Provident International Limited',
              'Utmost Intl (Quilter) GBP',
              'Utmost International USD',
              'Utmost Worldwide Ltd',
-             'Singapore Life Ltd']
+             'Singapore Life Ltd',
+             'Monument Intl Life Ass Co Ltd']
 beginner = [49100, 49150, 47000, 47100, 40500, 41000]
 
 # loading data
