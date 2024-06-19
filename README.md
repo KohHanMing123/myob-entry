@@ -55,7 +55,7 @@ using the values provided in data.xlsx:
 
   ![image](https://github.com/MKSanic/myob-entry/assets/76942402/9de376fd-8abd-486e-b95c-90d90c065da8)
 
-5. Download the code and template excel sheet
+5. Download the [code and template excel sheet](https://github.com/MKSanic/myob-entry/archive/refs/heads/main.zip)
 
 > [!TIP]
 > Move the program and template to Desktop to make it easier to access
@@ -73,6 +73,19 @@ using the values provided in data.xlsx:
 > [!IMPORTANT]
 > Make sure the excel file is in the same folder as the program etc. Desktop
 
-3. Run the program by double clicking it
+3. Prepare MYOB entry page
 
-4. 
+   ![image](https://github.com/MKSanic/myob-entry/assets/76942402/a51bd330-0fcb-47b3-b4da-3227e1e2fe01)
+
+ > [!CAUTION]
+ > Make sure you have selected whether it is tax-inclusive or not. this will apply to all entries in the excel sheet
+   
+5. Run the program by double clicking it
+
+6. Follow instructions on program
+
+7. Once you get to this page, switch to MYOB quickly after it starts counting down
+
+8. Done!!
+
+
