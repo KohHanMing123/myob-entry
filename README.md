@@ -73,7 +73,7 @@ using the values provided in data.xlsx:
 > [!IMPORTANT]
 > Make sure the excel file is in the same folder as the program etc. Desktop
 
-3. Prepare MYOB entry page
+3. Prepare MYOB entry page, ensuring it is maximised
 
    ![image](https://github.com/MKSanic/myob-entry/assets/76942402/a51bd330-0fcb-47b3-b4da-3227e1e2fe01)
 
