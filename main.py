@@ -48,7 +48,7 @@ providers = ['Friends Provident International Limited',
 beginner = [49100, 49150, 47000, 47100, 40500, 41000]
 
 # loading data
-wb = load_workbook('data.xlsx')
+wb = load_workbook('data.xlsx', data_only=True)
 ws = wb.active
 
 # fetching and packing data
@@ -61,10 +61,7 @@ for i in range(len(ws['A'][1:])):
     for letter in collumns:
         d.append(ws[letter][i + 1].internal_value)
     data[i] = tuple(d)
-try:
-    del data[None]
-except:
-    pass
+
 
 # value: 0=provider 1=invoicedate 2=desc 3=adviser 4=tax 5=v1 6=c1 7=v2 8=c2
 # data validation and confirmation
@@ -99,8 +96,8 @@ errorno = 0
 uerrorno = 0
 warnno = 0
 uwarnno = 0
-for type, errors in unknowns.items():
-    if type in ['Invoice Date', 'Adviser', 'Value 1', 'Code 1', 'Code 2']:
+for Type, errors in unknowns.items():
+    if Type in ['Invoice Date', 'Adviser', 'Value 1', 'Code 1', 'Code 2']:
         uerrorno += len(errors)
         for error in errors.values():
             errorno += len(error)
@@ -114,12 +111,12 @@ Total number of warnings: {warnno}
 Number of unique warnings: {uwarnno}
 
 press enter to continue''')
-for type, errors in unknowns.items():
+for Type, errors in unknowns.items():
     if len(errors) == 0:
         continue
-    if type in ['Invoice Date', 'Adviser', 'Value 1', 'Code 1', 'Code 2']:
+    if Type in ['Invoice Date', 'Adviser', 'Value 1', 'Code 1', 'Code 2']:
         print(
-            f'fatal error of [{type}] in the following rows, please amend or remove invalid entry and rerun program '
+            f'fatal error of [{Type}] in the following rows, please amend or remove invalid entry and rerun program '
             f'to continue:')
         fatalerrors = True
         for error, rownos in errors.items():
@@ -132,18 +129,17 @@ if fatalerrors:
     input('finished displaying errors, press enter to close, rerun program after fixing errors')
     sys.exit()
 print('\n--------------------------------------------------------\n')
-for type, errors in unknowns.items():
+for Type, errors in unknowns.items():
     if len(errors) == 0:
         continue
-    if type not in ['Invoice Date', 'Adviser', 'Value 1', 'Code 1', 'Code 2']:
-        if len(errors) != 0:
-            print(f'warnings for [{type}] in the following rows, please amend before rerunning program or ignore by '
-                  f'pressing enter for every warning: ')
-            for error, rownos in errors.items():
-                print(f'\t{f'"{error}"' if error is not None else 'MISSING VALUE'}:', end="")
-                for num in rownos:
-                    print(f'\n\t\t\t- {num}', end="")
-                input()
+    if Type not in ['Invoice Date', 'Adviser', 'Value 1', 'Code 1', 'Code 2']:
+        print(f'warnings for [{Type}] in the following rows, please amend before rerunning program or ignore by '
+              f'pressing enter for every warning: ')
+        for error, rownos in errors.items():
+            print(f'\t{f'"{error}"' if error is not None else 'MISSING VALUE'}:', end="")
+            for num in rownos:
+                print(f'\n\t\t\t- {num}', end="")
+            input()
 input('\n--------------------------------------------------------\nignore all warnings and proceed?\npress enter to '
       'continue')
 countdown(5)
