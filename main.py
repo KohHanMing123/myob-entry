@@ -162,7 +162,13 @@ for value in data.values():
     pyag.click(180, 860)
     pyag.typewrite(value[2])
     input('finished')
-    pyag.click(700, 962)
-    time.sleep(0.4)
+    record_button_location = pyag.locateCenterOnScreen("record_button.png")
+    if (record_button_location is not None):
+        pyag.click(record_button_location)
+    else:
+        print("Record button not found. Ensure button is visible on screen or record_button.png is in same directory")
+    time.sleep(0.5)
+    # pyag.click(700, 962)
+    # time.sleep(0.4)
     pyag.click(880, 610)
     time.sleep(0.5)
