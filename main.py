@@ -6,7 +6,16 @@ from datetime import datetime
 
 
 # definitions
+# Fixed codes that should NOT have agent number added
+fixed_codes = [41016, 44016, 47116, 47516]
+
 def code(beg: int, agent: str):
+    # If it's a fixed code, use it directly without adding agent number
+    if beg in fixed_codes:
+        t = str(beg)
+        t = f'{t[0]}-{t[1:]}'
+        return t
+    
     extra = 0
     if beg in [40500, 41000] and agent == 'Ex-Clients':
         extra += 30
